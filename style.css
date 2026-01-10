@@ -1445,3 +1445,70 @@ input[type="radio"] { display: none; }
         max-width: 300px;
     }
 }
+/* Hediye kutusu/Gizemli oyun kartlarını düzeltir */
+.hediye {
+    width: 100%; /* Mobilde tam genişlik için */
+    max-width: 280px; /* Masaüstünde çok büyümemesi için */
+    aspect-ratio: 1 / 1.2; /* Kartın oranını korur */
+    height: auto; /* Sabit height yerine otomatik kullanın */
+    background: #2a2a2a;
+    border-radius: 16px;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+    transition: 0.3s;
+    margin: 0 auto; /* Mobilde ortalar */
+}
+
+/* İçerideki yazıların sığmasını sağlar */
+.kapali h2, .acik h2 {
+    font-size: 1.5rem;
+    padding: 10px;
+    word-wrap: break-word;
+}
+.footer {
+    width: 100%;
+    background: #000;
+    padding: 40px 20px;
+    margin-top: 50px; /* İçerikle arasına boşluk koyar */
+    position: relative; /* Sabit kalmasını engeller, en alta iter */
+    left: 0;
+    right: 0;
+    text-align: center;
+    border-top: 2px solid #222;
+}
+
+.footer-container {
+    max-width: 1100px;
+    margin: 0 auto;
+}
+.destek-kartlari {
+    display: flex;
+    justify-content: center;
+    align-items: stretch; /* Kart boylarını eşitler */
+    gap: 20px;
+    flex-wrap: wrap; /* Mobilde alt alta geçmelerini sağlar */
+    padding: 20px;
+}
+
+.destek-kart {
+    flex: 1 1 280px; /* Minimum 280px genişlik ver, sığmazsa alt satıra geç */
+    max-width: 350px;
+    background-color: #2a2a2a;
+    padding: 25px;
+    border-radius: 16px;
+}
+/* Oyun kartlarının bulunduğu ana bölüm */
+.OYUN, #orta {
+    display: block;
+    width: 100%;
+    min-height: auto; /* Yüksekliği içeriğe göre esner */
+    padding-bottom: 20px;
+}
+
+.Oyun-list, .oyun-kartlari {
+    display: flex;
+    flex-wrap: wrap; /* Mobilde sığmayan kartları alt satıra atar */
+    gap: 20px;
+    justify-content: center;
+}
