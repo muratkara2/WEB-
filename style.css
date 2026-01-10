@@ -1216,13 +1216,13 @@ button{
     font-size:16px;
 }
 /* ==========================================
-   1. GLOBAL SIFIRLAMA VE TEMEL YAPI
+   1. TEMEL AYARLAR VE RESET
    ========================================== */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: 'Segoe UI', Arial, sans-serif;
+    font-family: 'Segoe UI', Roboto, Arial, sans-serif;
 }
 
 html, body {
@@ -1231,23 +1231,21 @@ html, body {
     color: #fff;
     display: flex;
     flex-direction: column;
-    overflow-x: hidden; /* Sağ tarafa taşmaları ve scroll çubuğunu engeller */
 }
 
-/* Ana İçerik Alanı: Footer'ı her zaman en alta iter */
+/* Sayfa içeriğinin footer'ı en alta itmesini sağlar */
 main, #orta, #destek-alan, .OYUN, #ana-alan, .sepet-container {
     flex: 1 0 auto;
     width: 100%;
 }
 
 /* ==========================================
-   2. YATAY MOBİL HEADER (MENÜ) DÜZENİ
+   2. MODERN VE YATAY MOBİL HEADER
    ========================================== */
 .header {
-    background-color: #000;
-    padding: 10px 0;
-    width: 100%;
+    background-color: #161616;
     border-bottom: 1px solid #222;
+    padding: 10px 0;
     position: sticky;
     top: 0;
     z-index: 1000;
@@ -1257,141 +1255,141 @@ main, #orta, #destek-alan, .OYUN, #ana-alan, .sepet-container {
     max-width: 1200px;
     margin: 0 auto;
     display: flex;
-    flex-direction: row; /* Masaüstü ve Mobilde her zaman YATAY */
     align-items: center;
     justify-content: space-between;
-    padding: 5px 15px;
-    gap: 15px;
+    padding: 0 15px;
 }
 
 #logo img {
     height: 35px;
     width: auto;
-    border-radius: 5px;
+    object-fit: contain;
 }
 
-/* Menü Linklerini Mobilde Kaydırılabilir ve Yan Yana Yapar */
+/* Menü Linkleri Konteynırı */
 .nav-links {
     display: flex;
-    flex-direction: row;
+    align-items: center;
     gap: 10px;
-    overflow-x: auto; /* Mobilde linkler sığmazsa parmakla sağa kaydırılır */
-    white-space: nowrap;
-    padding: 5px 0;
-    scrollbar-width: none; /* Firefox için scrollbar gizle */
-}
-
-.nav-links::-webkit-scrollbar {
-    display: none; /* Chrome/Safari için scrollbar gizle */
 }
 
 #üst a {
-    color: #ccc;
+    color: #eee;
     text-decoration: none;
-    font-size: 14px;
+    font-size: 13px;
     font-weight: 500;
     padding: 8px 12px;
-    transition: 0.3s;
     border-radius: 6px;
+    transition: 0.3s;
 }
 
 #üst a:hover {
-    background-color: #333;
+    background-color: #2a2a2a;
     color: #00ffcc;
 }
 
+/* Sepet Butonu */
 #sepet {
-    background-color: #00ffcc;
+    background-color: #00ffcc !important;
     color: #000 !important;
     font-weight: bold;
-    border-radius: 6px;
+    padding: 8px 15px !important;
 }
 
 /* ==========================================
-   3. KARTLAR VE İÇERİK (OYUNLAR & GİZEMLİ KUTU)
+   3. RESPONSIVE KART SİSTEMİ (GİZEMLİ OYUN VS.)
    ========================================== */
-.container-flex, .Oyun-list, .oyun-kartlari, .indirimler, .destek-kartlari {
+.container-flex, .indirimler, .destek-kartlari, .Oyun-list {
     display: flex;
-    flex-wrap: wrap; /* Kartları sığmayınca alt satıra atar */
+    flex-wrap: wrap;
     justify-content: center;
-    gap: 20px;
-    padding: 20px;
-    width: 100%;
+    gap: 15px;
+    padding: 20px 10px;
 }
 
-/* Tüm kart tipleri için ortak düzen */
-.oyun-kart, .OYun-card, .destek-kart, .hediye, .game-box {
+/* Kartların mobilde devasa olmasını engelleyen ayar */
+.hediye, .destek-kart, .oyun-kart, .game-box, .OYun-card {
     background: #1e1e1e;
     border-radius: 12px;
     padding: 15px;
-    width: 100%; /* Mobilde genişliği sığdırır */
-    max-width: 280px; /* Masaüstünde çok büyümesini engeller */
+    width: 100%;
+    max-width: 260px; /* Kart genişliğini sabitledik */
     text-align: center;
+    border: 1px solid #282828;
     transition: 0.3s;
-    border: 1px solid #222;
 }
 
-.oyun-kart:hover, .hediye:hover {
+.hediye:hover, .oyun-kart:hover {
     transform: translateY(-5px);
     border-color: #00ffcc;
-    background: #252525;
 }
 
+/* Görsel Boyutlandırma */
 .oyun-kart img, .OYun-card img {
     width: 100%;
-    height: 150px;
+    height: 140px;
     object-fit: cover;
     border-radius: 8px;
-    margin-bottom: 10px;
 }
 
 /* ==========================================
-   4. FOOTER (HAKKIMIZDA BÖLÜMÜ)
+   4. FOOTER (HAKKIMIZDA) KESİN ÇÖZÜM
    ========================================== */
 .footer {
     flex-shrink: 0;
     background-color: #000;
-    padding: 40px 20px;
-    text-align: center;
-    border-top: 2px solid #222;
-    margin-top: 40px;
-    position: relative; /* İçeriğin üzerine binme hatasını engeller */
+    padding: 30px 20px;
+    margin-top: 50px;
+    border-top: 1px solid #222;
+    position: relative;
+    clear: both;
 }
 
 .footer-about h3 {
-    color: #f5b400;
-    margin-bottom: 15px;
-    font-size: 20px;
+    color: #ffcc00;
+    margin-bottom: 12px;
+    font-size: 18px;
 }
 
 .footer-about p {
-    max-width: 800px;
+    max-width: 600px;
     margin: 0 auto;
-    color: #aaa;
-    font-size: 14px;
+    font-size: 13px;
+    color: #bbb;
     line-height: 1.6;
 }
 
 /* ==========================================
-   5. MOBİL ÖZEL DÜZELTMELER
+   5. MOBİL ÖZEL AYARLAR (GÖRSELLERDEKİ HATALAR İÇİN)
    ========================================== */
 @media (max-width: 768px) {
+    /* Header'ı iki satıra bölerek sıkışmayı önler */
     #üst {
-        flex-wrap: wrap;
-        justify-content: center;
+        flex-direction: column;
+        gap: 10px;
     }
 
     .nav-links {
         width: 100%;
         justify-content: center;
+        flex-wrap: wrap; /* Sığmayan linkleri alt satıra atar */
+        gap: 5px;
     }
 
-    .hediye, .oyun-kart {
-        max-width: 100%; /* Mobilde kartlar yan yana değil alt alta düzgün dizilir */
+    #üst a {
+        padding: 5px 10px;
+        font-size: 12px;
     }
 
-    h1 {
-        font-size: 24px;
-        text-align: center;
+    /* "Gizemli Oyun" kartlarının boyunu mobilde optimize eder */
+    .hediye {
+        max-width: 45%; /* Yan yana ikişerli dizilmeleri için */
+        min-height: 180px;
+    }
+}
+
+@media (max-width: 480px) {
+    .hediye {
+        max-width: 100%; /* Çok küçük ekranlarda tekli dizim */
     }
 }
