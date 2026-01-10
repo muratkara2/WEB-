@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<title>monicraft</title>
+<style>
+body{
+    margin:0;
+    font-family:Arial;
+    background:#87ceeb;
+}
+#menu{
+    position:fixed;
+    inset:0;
+    background:#000c;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    z-index:10;
+}
+#menu button{
+    padding:20px 40px;
+    font-size:22px;
+}
+#hud{
+    background:#222;
+    color:white;
+    padding:10px;
+    position:fixed;
+    top:0;
+    width:100%;
+    display:flex;
+    justify-content:space-between;
+    z-index:5;
+}
+#info{
+    font-size:14px;
+}
+#world{
+    display:grid;
+    grid-template-columns:repeat(auto-fill,60px);
+    gap:2px;
+    margin-top:60px;
+}
+.block{
+    width:60px;
+    height:60px;
+    background:brown;
+}
+.empty{
+    background:#cceeff;
+}
+</style>
+</head>
+<body>
+
+<div id="menu">
+    <button onclick="start()">Oyuna Başla</button>
+</div>
+
+<div id="hud">
+    <div>Skor: <span id="score">0</span></div>
+    <div id="info">🖱 Sol Tık: Kır | 🖱 Sağ Tık: Koy</div>
+</div>
+
+<div id="world"></div>
+
+<script>
+const world = document.getElementById("world");
+let score = 0;
+
+function addRow(){
+    const cols = Math.floor(window.innerWidth / 62);
+    for(let i=0;i<cols;i++){
+        const b=document.createElement("div");
+        b.className = Math.random()>0.3 ? "block" : "block empty";
+
+        // SOL TIK → KIR
+        b.addEventListener("click",()=>{
+            if(!b.classList.contains("empty")){
+                b.classList.add("empty");
+                score++;
+                document.getElementById("score").innerText = score;
+            }
+        });
+
+        b.addEventListener("contextmenu",(e)=>{
+            e.preventDefault();
+            if(b.classList.contains("empty")){
+                b.classList.remove("empty");
+            }
+        });
+
+        world.appendChild(b);
+    }
+}
+
+function start(){
+    document.getElementById("menu").style.display="none";
+    for(let i=0;i<20;i++) addRow();
+}
+
+window.addEventListener("scroll",()=>{
+    if(window.innerHeight + scrollY >= document.body.offsetHeight-300){
+        addRow();
+    }
+});
+
+
+document.addEventListener("contextmenu",e=>e.preventDefault());
+</script>
+</body>
+</html>

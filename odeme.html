@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<title>Ödeme</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="odeme-container">
+    <h1>💳 Ödeme Bilgileri</h1>
+
+    <input type="text" placeholder="Kart Numarası">
+    <input type="text" placeholder="Son Kullanma Tarihi (AA/YY)">
+    <input type="text" placeholder="CVV">
+
+    <button onclick="odemeYap()">Öde</button>
+
+    <a href="index.html" class="devam-link">Alışverişe Devam Et</a>
+</div>
+
+<script>
+function odemeYap(){
+    const takipNo = "TR-" + Math.floor(Math.random() * 99999999);
+    localStorage.setItem("takipNo", takipNo);
+    window.location.href = "odeme-tamamlandi.html";
+}
+</script>
+
+</body>
+</html>

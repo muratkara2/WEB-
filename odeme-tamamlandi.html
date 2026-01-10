@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<title>Ödeme Tamamlandı</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="tamamlandi-container">
+    <h1>✅ Ödeme Tamamlandı</h1>
+    <p>Takip Numaranız:</p>
+    <h2 id="takip"></h2>
+
+    <a href="index.html">
+        <button>Alışverişe Devam Et</button>
+    </a>
+</div>
+
+<script>
+document.getElementById("takip").innerText =
+    localStorage.getItem("takipNo");
+</script>
+
+</body>
+</html>

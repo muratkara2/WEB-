@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<title>polisten kaçış</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div id="menu">
+    <button onclick="start()">Oyuna Başla</button>
+</div>
+
+<div id="hud">
+    <div>Risk: <span id="risk">0</span></div>
+    <div>🚓 Polis 3 sn sonra başlar</div>
+</div>
+
+<div id="OYUn">
+    <div id="oyuncu"></div>
+    <div id="polis"></div>
+    <div id="garaj">GARAGE</div>
+</div>
+
+<div id="oyunbitti">
+    <div class="box">
+        <h2>🚓 Yakalandın!</h2>
+        <button onclick="restart()">🔁 Yeniden Oyna</button>
+        <button onclick="exitGame()">🚪 Çık</button>
+    </div>
+</div>
+
+<script>
+const player = document.getElementById("oyuncu");
+const police = document.getElementById("polis");
+const garage = document.getElementById("garaj");
+
+let px=200, py=200;
+let cx=50, cy=50;
+
+let speed=6;
+let policeSpeed=1;
+let policeActive=false;
+let risk=0;
+let playing=false;
+
+garage.style.left="600px";
+garage.style.top="300px";
+
+function start(){
+    document.getElementById("menu").style.display="none";
+    playing=true;
+    setTimeout(()=>policeActive=true,3000);
+    loop();
+}
+
+document.addEventListener("keydown",e=>{
+    if(!playing) return;
+    if(e.key==="ArrowUp"||e.key==="w"){py-=speed; risk++;}
+    if(e.key==="ArrowDown"||e.key==="s"){py+=speed; risk++;}
+    if(e.key==="ArrowLeft"||e.key==="a"){px-=speed; risk++;}
+    if(e.key==="ArrowRight"||e.key==="d"){px+=speed; risk++;}
+    document.getElementById("risk").innerText=risk;
+});
+
+function loop(){
+    if(!playing) return;
+
+    if(policeActive){
+        policeSpeed = 1 + risk/250;
+        cx += (px - cx) * 0.01 * policeSpeed;
+        cy += (py - cy) * 0.01 * policeSpeed;
+    }
+
+    player.style.left=px+"px";
+    player.style.top=py+"px";
+    police.style.left=cx+"px";
+    police.style.top=cy+"px";
+
+    if(policeActive && Math.abs(px-cx)<20 && Math.abs(py-cy)<20){
+        showGameOver();
+    }
+
+    if(Math.abs(px-600)<50 && Math.abs(py-300)<50){
+        playing=false;
+        alert("🏠 Garaja girdin, kurtuldun!");
+        location.reload();
+    }
+
+    requestAnimationFrame(loop);
+}
+
+function showGameOver(){
+    playing=false;
+    document.getElementById("gameOver").style.display="flex";
+}
+
+function restart(){
+    location.reload();
+}
+
+function exitGame(){
+    window.location.href="demooyunlar.html";
+}
+</script>
+</body>
+</html>
