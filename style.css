@@ -279,21 +279,21 @@ input[type="radio"] {
 
 
 #oyun1:checked ~ #oyun-detay {
-    background-image: url("../Fotoğraflar/OYUNLAR/SİMULASYON/oyun19.jpg");
+    background-image: url("../images/oyunlar/simülasyon/oyun19.jpg");
 }
 #oyun1:checked ~ #oyun-detay .detay1 {
     display: block;
 }
 
 #oyun2:checked ~ #oyun-detay {
-    background-image: url("../Fotoğraflar/OYUNLAR/STRATEJİ/oyun6.jpg");
+    background-image: url("../images/oyunlar/strateji/oyun6.jpg");
 }
 #oyun2:checked ~ #oyun-detay .detay2 {
     display: block;
 }
 
 #oyun3:checked ~ #oyun-detay {
-    background-image: url("../Fotoğraflar/OYUNLAR/HİKAYE/oyun17.jpg");
+    background-image: url("../images/oyunlar/hikaye/oyun17.jpg");
 }
 #oyun3:checked ~ #oyun-detay .detay3 {
     display: block;
