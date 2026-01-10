@@ -279,7 +279,7 @@ input[type="radio"] {
 
 
 #oyun1:checked ~ #oyun-detay {
-    background-image: url("../images/oyunlar/simülasyon/oyun19.jpg");
+    background-image: url("../images/oyunlar/simulasyon/oyun19.jpg");
 }
 #oyun1:checked ~ #oyun-detay .detay1 {
     display: block;
