@@ -1215,7 +1215,9 @@ button{
     min-height:48px;
     font-size:16px;
 }
-/* 1. GLOBAL SIFIRLAMA (RESET) */
+/* ==========================================
+   1. GLOBAL SIFIRLAMA VE TEMEL YAPI
+   ========================================== */
 * {
     margin: 0;
     padding: 0;
@@ -1224,17 +1226,29 @@ button{
 }
 
 html, body {
-    height: 100%;
-    background-color: #0f0f0f;
-    color: #fff;
-    overflow-x: hidden; /* Yatay kaydırmayı engeller */
+    height: 100%; /* Sayfa boyunun tam ekran olmasını sağlar */
 }
 
-/* 2. HEADER & NAVIGASYON */
+body {
+    display: flex;
+    flex-direction: column; /* İçeriği yukarıdan aşağıya dizer */
+    background-color: #0f0f0f;
+    color: #fff;
+    overflow-x: hidden; /* Sağ tarafa doğru taşmaları ve kaydırmayı engeller */
+}
+
+/* Ana İçerik Taşıyıcısı: Footer'ı en alta itmek için kullanılır */
+main, #orta, #destek-alan, .OYUN {
+    flex: 1 0 auto; /* İçerik az olsa bile footer'ın yukarı çıkmasını engeller */
+    width: 100%;
+}
+
+/* ==========================================
+   2. HEADER VE NAVİGASYON (ÜST MENÜ)
+   ========================================== */
 .header {
     background-color: #000;
     padding: 15px 0;
-    width: 100%;
 }
 
 #üst {
@@ -1242,16 +1256,15 @@ html, body {
     margin: 0 auto;
     display: flex;
     align-items: center;
-    gap: 20px;
+    gap: 15px;
     background-color: #222;
-    padding: 12px 25px;
+    padding: 12px 20px;
     border-radius: 12px;
 }
 
 #logo img {
     height: 40px;
-    width: 80px;
-    object-fit: cover;
+    width: auto;
     border-radius: 50px;
 }
 
@@ -1267,9 +1280,15 @@ html, body {
     border-radius: 5px;
 }
 
+#sepet {
+    margin-left: auto;
+    background-color: #444;
+    border-radius: 6px;
+    font-weight: bold;
+}
+
 /* Dropdown Menü */
 #oyun { position: relative; }
-#oyunlar-baslik { cursor: pointer; padding: 10px; }
 #oyun-alt {
     display: none;
     position: absolute;
@@ -1279,132 +1298,73 @@ html, body {
     width: 200px;
     border-radius: 8px;
     z-index: 100;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.5);
 }
 #oyun:hover #oyun-alt { display: block; }
-.menu-item a { display: block; width: 100%; }
 
-#sepet {
-    margin-left: auto;
-    background-color: #444;
-    border-radius: 6px;
-    font-weight: bold;
-}
-
-/* 3. ANA ALAN (Oyun Listeleri) */
-#orta {
-    padding: 40px 20px;
-    max-width: 1200px;
-    margin: 0 auto;
-}
-
-.oyun-kartlari, .onecikan-games {
+/* ==========================================
+   3. KART YAPILARI (OYUNLAR, DESTEK, GİZEMLİ)
+   ========================================== */
+.container-flex {
     display: flex;
+    flex-wrap: wrap; /* Kartların sığmayınca alt satıra geçmesini sağlar */
     justify-content: center;
-    gap: 25px;
-    flex-wrap: wrap;
+    gap: 20px;
+    padding: 20px;
 }
 
-.oyun-kart, .oyun-box, .OYun-card {
-    width: 260px;
+/* Genel Kart Tasarımı */
+.oyun-kart, .oyun-box, .OYun-card, .destek-kart, .hediye {
     background: #1e1e1e;
     border-radius: 15px;
-    padding: 15px;
-    transition: transform 0.3s, background 0.3s;
+    padding: 20px;
+    transition: transform 0.3s;
     text-align: center;
+    width: 280px; /* Sabit genişlik yerine max-width kullanılacak (mobil için) */
 }
 
-.oyun-kart:hover, .oyun-box:hover, .OYun-card:hover {
+.oyun-kart:hover, .destek-kart:hover, .hediye:hover {
     transform: translateY(-10px);
     background: #2a2a2a;
-    box-shadow: 0 0 15px rgba(0,255,204,0.2);
 }
 
-.oyun-kart img, .oyun-box img, .OYun-card img {
+.oyun-kart img, .OYun-card img {
     width: 100%;
     height: 160px;
     object-fit: cover;
     border-radius: 10px;
-    margin-bottom: 12px;
 }
 
-/* 4. OYUN DETAY & KÜTÜPHANE (Radio Button Mantığı) */
-#ana-alan {
-    display: flex;
-    min-height: 80vh;
-}
-
-#kutuphane {
-    width: 260px;
-    background: #111;
-    padding: 20px;
+/* Gizemli Oyun Özel */
+.hediye {
+    min-height: 260px;
     display: flex;
     flex-direction: column;
-    gap: 15px;
-}
-
-.oyun-item {
-    display: flex;
+    justify-content: center;
     align-items: center;
-    gap: 12px;
-    background: #1e1e1e;
-    padding: 10px;
-    border-radius: 10px;
-    cursor: pointer;
-    transition: 0.3s;
 }
 
-input[type="radio"] { display: none; }
-
-#oyun1:checked ~ #kutuphane label[for="oyun1"],
-#oyun2:checked ~ #kutuphane label[for="oyun2"] {
-    background: #00ff99;
-    color: #000;
-}
-
-/* 5. SEPET VE ÖDEME ALANI */
-.sepet-container, .odeme-container {
-    max-width: 800px;
-    margin: 50px auto;
-    background: #1e1e1e;
-    padding: 30px;
-    border-radius: 12px;
-}
-
-.sepet-item {
-    display: flex;
-    align-items: center;
-    background: #2a2a2a;
-    padding: 15px;
-    border-radius: 10px;
-    margin-bottom: 15px;
-}
-
-.price, .oran, .yeni {
-    color: #00ff99;
-    font-weight: bold;
-}
-
-/* 6. REFLEKS OYUNU ÖZEL (HUD & GAME) */
+/* ==========================================
+   4. REFLEKS OYUNU ÖZEL (HUD & GAME)
+   ========================================== */
 #hud {
     position: fixed;
-    top: 0; left: 0;
+    top: 0;
     width: 100%;
     height: 60px;
-    background: rgba(34, 34, 34, 0.95);
+    background: #222;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 0 30px;
+    padding: 0 20px;
     z-index: 1000;
 }
 
-#game-canvas {
+#game {
     position: relative;
     width: 100%;
     height: calc(100vh - 60px);
     margin-top: 60px;
-    background: #111;
+    overflow: hidden;
 }
 
 .box {
@@ -1416,99 +1376,54 @@ input[type="radio"] { display: none; }
     cursor: pointer;
 }
 
-/* 7. FOOTER */
+/* ==========================================
+   5. FOOTER (HAKKIMIZDA BÖLÜMÜ) - EN ÖNEMLİ KISIM
+   ========================================== */
 .footer {
-    background: #000;
+    flex-shrink: 0; /* Footer'ın ezilmesini engeller */
+    background-color: #000;
     padding: 40px 20px;
-    text-align: center;
-    margin-top: auto;
-    border-top: 1px solid #222;
-}
-
-/* 8. RESPONSIVE (MOBİL) */
-@media (max-width: 768px) {
-    #üst {
-        flex-wrap: wrap;
-        justify-content: center;
-    }
-    
-    #kutuphane {
-        width: 100%;
-    }
-
-    #ana-alan {
-        flex-direction: column;
-    }
-
-    .oyun-kart {
-        width: 100%;
-        max-width: 300px;
-    }
-}
-/* Hediye kutusu/Gizemli oyun kartlarını düzeltir */
-.hediye {
-    width: 100%; /* Mobilde tam genişlik için */
-    max-width: 280px; /* Masaüstünde çok büyümemesi için */
-    aspect-ratio: 1 / 1.2; /* Kartın oranını korur */
-    height: auto; /* Sabit height yerine otomatik kullanın */
-    background: #2a2a2a;
-    border-radius: 16px;
-    cursor: pointer;
-    position: relative;
-    overflow: hidden;
-    transition: 0.3s;
-    margin: 0 auto; /* Mobilde ortalar */
-}
-
-/* İçerideki yazıların sığmasını sağlar */
-.kapali h2, .acik h2 {
-    font-size: 1.5rem;
-    padding: 10px;
-    word-wrap: break-word;
-}
-.footer {
-    width: 100%;
-    background: #000;
-    padding: 40px 20px;
-    margin-top: 50px; /* İçerikle arasına boşluk koyar */
-    position: relative; /* Sabit kalmasını engeller, en alta iter */
-    left: 0;
-    right: 0;
     text-align: center;
     border-top: 2px solid #222;
-}
-
-.footer-container {
-    max-width: 1100px;
-    margin: 0 auto;
-}
-.destek-kartlari {
-    display: flex;
-    justify-content: center;
-    align-items: stretch; /* Kart boylarını eşitler */
-    gap: 20px;
-    flex-wrap: wrap; /* Mobilde alt alta geçmelerini sağlar */
-    padding: 20px;
-}
-
-.destek-kart {
-    flex: 1 1 280px; /* Minimum 280px genişlik ver, sığmazsa alt satıra geç */
-    max-width: 350px;
-    background-color: #2a2a2a;
-    padding: 25px;
-    border-radius: 16px;
-}
-/* Oyun kartlarının bulunduğu ana bölüm */
-.OYUN, #orta {
-    display: block;
     width: 100%;
-    min-height: auto; /* Yüksekliği içeriğe göre esner */
-    padding-bottom: 20px;
+    position: relative; /* Üzerine binmeyi engeller */
+    margin-top: 50px;
 }
 
-.Oyun-list, .oyun-kartlari {
-    display: flex;
-    flex-wrap: wrap; /* Mobilde sığmayan kartları alt satıra atar */
-    gap: 20px;
-    justify-content: center;
+.footer-about h3 {
+    color: #f5b400;
+    margin-bottom: 15px;
+}
+
+.footer-about p {
+    max-width: 700px;
+    margin: 0 auto;
+    line-height: 1.6;
+    color: #ccc;
+}
+
+/* ==========================================
+   6. MOBİL UYUMLULUK (RESPONSIVE)
+   ========================================== */
+@media (max-width: 768px) {
+    #üst {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    #sepet {
+        margin: 10px auto;
+    }
+
+    .oyun-kart, .destek-kart, .hediye {
+        width: 100%; /* Mobilde kartlar ekranı kaplar */
+        max-width: 320px;
+    }
+
+    h1 { font-size: 24px; }
+    
+    #hud {
+        padding: 0 10px;
+        font-size: 14px;
+    }
 }
