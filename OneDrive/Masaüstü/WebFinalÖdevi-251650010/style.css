@@ -1,0 +1,1192 @@
+*{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+}
+
+body {
+            margin: 0;
+            padding: 0;
+      background-color: #1b1b1b;
+            
+}
+
+        
+#üst {
+            display: flex;
+    align-items: center;
+    justify-content: center; 
+    gap: 20px;
+    background-color: #222;
+    padding: 15px 25px;
+    border-radius: 12px;
+
+    max-width: 1200px; 
+    margin: 0 auto 40px auto; 
+}
+
+       
+#logo img {
+            height: 40px;
+            width: 80px;        
+            border-radius: 50px;
+            object-fit: cover;
+}
+        
+
+#üst a {
+            color: white;
+            text-decoration: none;
+            padding: 10px;
+}
+
+#üst a:hover {
+            background-color: #444;
+            border-radius: 5px;
+}
+
+       
+#oyun {
+            position: relative;
+           
+}
+
+#oyunlar-baslik {
+            color: white;
+            padding: 10px;
+            cursor: pointer;
+}
+
+#oyun-alt {
+            display: none;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background-color: #333;
+            width: 200px;
+}
+
+.menu-item a {
+            display: block;
+            padding: 10px;
+            color: white;
+            text-decoration: none;
+}
+
+.menu-item a:hover {
+            background-color: #555;
+}
+
+#oyun:hover #oyun-alt {
+            display: block;
+}
+
+        
+#sepet {
+            margin-left: auto;
+            background-color: #444;
+            border-radius: 6px;
+}
+
+#sepet:hover {
+            background-color: #666;
+}
+        
+#orta {
+    background-color: #1b1b1b;
+    padding: 40px;
+    min-height: 100vh;
+}
+
+
+#oyun-tablosu {
+    width: 100%;
+    border-spacing: 20px;
+    text-align: center;
+}
+
+
+#oyun-tablosu td {
+    background-color: #2a2a2a;
+    padding: 15px;
+    border-radius: 12px;
+    width: 20%;
+    vertical-align: top;
+    color: white;
+}
+
+
+#oyun-tablosu img {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+    border-radius: 10px;
+    margin-bottom: 10px;
+}
+
+
+#oyun-tablosu h3 {
+    margin: 8px 0;
+    font-size: 16px;
+}
+
+
+#oyun-tablosu p {
+    font-size: 13px;
+    color: #ccc;
+    min-height: 40px;
+}
+
+
+.fiyat {
+    display: inline-block;
+    margin-top: 10px;
+    font-weight: bold;
+    color: #00ff99;
+}
+
+
+#oyun-tablosu td:hover {
+    transform: scale(1.05);
+    transition: 0.3s;
+    background-color: #333;
+}
+
+#orta-alt {
+    width: 100%;
+    margin-top: 50px;
+    border-spacing: 15px;
+    text-align: center;
+}
+
+
+#orta-alt td {
+    background-color: #252525;
+    padding: 10px;
+    border-radius: 10px;
+    width: 12.5%;
+    color: white;
+}
+
+
+#orta-alt img {
+    width: 100%;
+    height: 90px;
+    object-fit: cover;
+    border-radius: 8px;
+    margin-bottom: 6px;
+}
+
+
+#orta-alt p {
+    font-size: 12px;
+    margin: 5px 0;
+}
+
+
+.orta-alt {
+    font-size: 12px;
+    color: #00ff99;
+    font-weight: bold;
+}
+
+
+#orta-alt td:hover {
+    background-color: #333;
+    transform: scale(1.05);
+    transition: 0.3s;
+}
+
+input[type="radio"] {
+    display: none;
+}
+
+
+#ana-alan {
+    display: flex;
+    height: 100vh;
+}
+
+
+#kutuphane {
+    width: 240px;
+    background: #111;
+    padding: 15px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+
+.oyun-item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    background: #1e1e1e;
+    padding: 10px;
+    border-radius: 10px;
+    cursor: pointer;
+    color: white;
+    transition: 0.3s;
+}
+
+
+.oyun-item img {
+    width: 50px;
+    height: 50px;
+    border-radius: 8px;
+    object-fit: cover;
+}
+
+
+.oyun-item span {
+    font-size: 14px;
+    font-weight: 500;
+}
+
+
+.oyun-item:hover {
+    background: #2a2a2a;
+}
+
+
+#oyun1:checked ~ #kutuphane label[for="oyun1"],
+#oyun2:checked ~ #kutuphane label[for="oyun2"],
+#oyun3:checked ~ #kutuphane label[for="oyun3"] {
+    background: #00ff99;
+    color: #000;
+}
+
+
+#oyun-detay {
+    flex: 1;
+    padding: 40px;
+    color: white;
+    background-size: cover;
+    background-position: center;
+    transition: background-image 0.4s ease;
+}
+
+
+.detay {
+    display: none;
+    background: rgba(0,0,0,0.6);
+    padding: 25px;
+    border-radius: 12px;
+    max-width: 600px;
+}
+
+
+#oyun1:checked ~ #oyun-detay {
+    background-image: url("../Fotoğraflar/OYUNLAR/SİMULASYON/oyun19.jpg");
+}
+#oyun1:checked ~ #oyun-detay .detay1 {
+    display: block;
+}
+
+#oyun2:checked ~ #oyun-detay {
+    background-image: url("../Fotoğraflar/OYUNLAR/STRATEJİ/oyun6.jpg");
+}
+#oyun2:checked ~ #oyun-detay .detay2 {
+    display: block;
+}
+
+#oyun3:checked ~ #oyun-detay {
+    background-image: url("../Fotoğraflar/OYUNLAR/HİKAYE/oyun17.jpg");
+}
+#oyun3:checked ~ #oyun-detay .detay3 {
+    display: block;
+}
+
+#indirimler {
+    display: flex;
+    gap: 30px;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+#ortai {
+    display: flex;
+    justify-content: center;   
+    align-items: center;       
+    min-height: 100vh;
+}
+
+.hediye {
+    width: 220px;
+    height: 260px;
+    background: #2a2a2a;
+    border-radius: 16px;
+    cursor: pointer;
+    position: relative;
+    color: white;
+    text-align: center;
+    overflow: hidden;
+    transition: 0.3s;
+}
+
+
+.kapali {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-size: 40px;
+    gap: 10px;
+}
+
+
+.acik {
+    display: none;
+    height: 100%;
+    padding: 20px;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 8px;
+}
+
+
+.oran {
+    color: #00ff99;
+    font-weight: bold;
+}
+
+
+.eski {
+    text-decoration: line-through;
+    color: #aaa;
+}
+
+
+.yeni {
+    font-size: 20px;
+    font-weight: bold;
+    color: #00ff99;
+}
+
+
+#paket1:checked + .hediye .kapali,
+#paket2:checked + .hediye .kapali,
+#paket3:checked + .hediye .kapali,
+#paket4:checked + .hediye .kapali {
+    display: none;
+}
+
+#paket1:checked + .hediye .acik,
+#paket2:checked + .hediye .acik,
+#paket3:checked + .hediye .acik,
+#paket4:checked + .hediye .acik {
+    display: flex;
+}
+
+
+.hediye:hover {
+    transform: scale(1.05);
+    background: #333;
+}
+
+#destek-alan {
+    background-color: #1b1b1b;
+    min-height: 100vh;
+    padding: 50px;
+    text-align: center;
+    color: white;
+}
+
+#destek-alan h1 {
+    font-size: 32px;
+    margin-bottom: 10px;
+}
+
+.alt-yazi {
+    color: #aaa;
+    margin-bottom: 40px;
+}
+
+
+.destek-kartlari {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    flex-wrap: wrap;
+}
+
+.destek-kart {
+    background-color: #2a2a2a;
+    width: 240px;
+    padding: 25px;
+    border-radius: 16px;
+    transition: 0.3s;
+    cursor: pointer;
+}
+
+.destek-kart:hover {
+    transform: scale(1.08);
+    background-color: #333;
+}
+
+
+.ikon {
+    font-size: 40px;
+    margin-bottom: 15px;
+}
+
+.destek-kart h3 {
+    margin-bottom: 10px;
+    font-size: 18px;
+}
+
+.destek-kart p {
+    font-size: 14px;
+    color: #ccc;
+}
+#orta {
+    background:#1b1b1b;
+    min-height:100vh;
+    padding:40px;
+    color:white;
+    text-align:center;
+}
+
+.baslik {
+    margin-bottom:40px;
+}
+
+.oyun-kartlari {
+    display:flex;
+    justify-content:center;
+    gap:30px;
+    flex-wrap:wrap;
+}
+
+.oyun-kart {
+    width:260px;
+    background:#2a2a2a;
+    border-radius:15px;
+    padding:15px;
+    transition:0.3s;
+}
+
+.oyun-kart:hover {
+    transform:scale(1.08);
+    background:#333;
+}
+
+.oyun-kart img {
+    width:100%;
+    height:150px;
+    object-fit:cover;
+    border-radius:10px;
+}
+
+.oyun-kart h3 {
+    margin:10px 0;
+}
+
+.oyun-kart p {
+    font-size:14px;
+    color:#ccc;
+}
+
+.oyun-kart a {
+    display:inline-block;
+    margin-top:10px;
+    padding:8px 15px;
+    background:#00ff99;
+    color:black;
+    text-decoration:none;
+    border-radius:6px;
+    font-weight:bold;
+}
+body{
+    margin:0;
+    background:#111;
+    font-family:Arial;
+}
+
+
+.demo-list{
+    display:flex;
+    justify-content:center;
+}
+.demo-card{
+    width:250px;
+    background:#222;
+    color:white;
+    padding:15px;
+    border-radius:10px;
+    cursor:pointer;
+}
+.demo-card img{
+    width:100%;
+    border-radius:8px;
+}
+
+
+#menu{
+    position:fixed;
+    inset:0;
+    background:#000c;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    z-index:10;
+}
+#menu button{
+    padding:20px 40px;
+    font-size:22px;
+}
+
+#hud{
+    position:fixed;
+    top:0;
+    width:100%;
+    background:#222;
+    color:white;
+    padding:10px;
+    display:flex;
+    justify-content:space-between;
+}
+
+#OYUn{
+    position:relative;
+    width:100vw;
+    height:100vh;
+}
+
+#oyuncu{
+    width:30px;
+    height:30px;
+    background:lime;
+    position:absolute;
+}
+
+#polis{
+    width:30px;
+    height:30px;
+    background:red;
+    position:absolute;
+}
+
+#garaj{
+    width:80px;
+    height:80px;
+    background:gray;
+    color:white;
+    position:absolute;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+}
+
+
+#oyunbitti{
+    position:fixed;
+    inset:0;
+    background:#000c;
+    display:none;
+    justify-content:center;
+    align-items:center;
+}
+#oyunbitti .box{
+    background:#222;
+    padding:30px;
+    color:white;
+    border-radius:10px;
+}
+#oyunbitti button{
+    margin:10px;
+    padding:10px 25px;
+}
+
+.sepet-container{
+    max-width:900px;
+    margin:50px auto;
+    background:#1b1b1b;
+    padding:30px;
+    border-radius:12px;
+    color:white;
+}
+
+.sepet-container h1{
+    margin-bottom:25px;
+    text-align:center;
+}
+
+.sepet-item{
+    display:flex;
+    align-items:center;
+    background:#2a2a2a;
+    padding:15px;
+    border-radius:10px;
+    margin-bottom:15px;
+}
+
+.sepet-item img{
+    width:120px;
+    height:70px;
+    object-fit:cover;
+    border-radius:8px;
+    margin-right:15px;
+}
+
+.sepet-item .info{
+    flex:1;
+}
+
+.sepet-item .info h3{
+    margin:0 0 5px 0;
+}
+
+.sepet-item .info p{
+    margin:0;
+    font-size:14px;
+    color:#ccc;
+}
+
+.sepet-item .price{
+    font-size:18px;
+    font-weight:bold;
+    color:#00ff99;
+}
+
+.sepet-toplam{
+    display:flex;
+    justify-content:space-between;
+    font-size:20px;
+    margin-top:25px;
+    padding-top:15px;
+    border-top:1px solid #444;
+}
+
+.sepet-buttons{
+    display:flex;
+    justify-content:space-between;
+    margin-top:25px;
+}
+
+.sepet-buttons button{
+    padding:12px 25px;
+    font-size:16px;
+    border:none;
+    border-radius:6px;
+    cursor:pointer;
+}
+
+.sepet-buttons .devam{
+    background:#444;
+    color:white;
+}
+
+.sepet-buttons .odeme{
+    background:#00ff99;
+    color:black;
+}
+body{
+    background:#121212;
+    font-family:Arial;
+    color:white;
+}
+
+
+.odeme-container, .tamamlandi-container{
+    width:400px;
+    margin:80px auto;
+    background:#1e1e1e;
+    padding:30px;
+    border-radius:12px;
+    text-align:center;
+}
+
+.odeme-container input{
+    width:100%;
+    padding:12px;
+    margin-bottom:15px;
+    border:none;
+    border-radius:6px;
+}
+
+.odeme-container button,
+.tamamlandi-container button{
+    width:100%;
+    padding:12px;
+    background:#00ff99;
+    border:none;
+    border-radius:6px;
+    font-size:16px;
+    cursor:pointer;
+}
+
+.devam-link{
+    display:block;
+    margin-top:15px;
+    color:#ccc;
+    text-decoration:none;
+}
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+body {
+    background-color: #121212;
+    color: #fff;
+}
+
+
+.site-header {
+    text-align: center;
+    padding: 40px 20px;
+}
+
+.site-header h1 {
+    font-size: 36px;
+    margin-bottom: 10px;
+}
+
+.site-header p {
+    color: #aaa;
+    font-size: 16px;
+}
+
+
+.featured-games {
+    display: flex;
+    justify-content: center;
+    gap: 25px;
+    padding: 30px;
+}
+
+.game-box {
+    background-color: #1e1e1e;
+    width: 230px;
+    border-radius: 12px;
+    padding: 15px;
+    text-align: center;
+    transition: transform 0.3s;
+}
+
+.game-box:hover {
+    transform: translateY(-5px);
+}
+
+
+.game-box img {
+    width: 100%;
+    height: 130px;
+    object-fit: cover;
+    border-radius: 8px;
+    margin-bottom: 12px;
+}
+
+
+.game-box h3 {
+    font-size: 18px;
+    margin-bottom: 8px;
+}
+
+
+.game-box p {
+    font-size: 14px;
+    color: #bbb;
+}
+
+.anasayfa{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+body {
+    background: #0f0f0f;
+    color: #fff;
+}
+
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 60px;
+    background: #000;
+}
+
+.logo {
+    font-size: 24px;
+    font-weight: bold;
+    color: #00ffcc;
+}
+
+
+
+
+.slogan {
+    height: 70vh;
+    background: linear-gradient(120deg, #000, #111);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.slogan h1 {
+    font-size: 48px;
+    margin-bottom: 15px;
+}
+
+.slogan p {
+    font-size: 18px;
+    color: #ccc;
+    margin-bottom: 30px;
+}
+
+.btn {
+    padding: 15px 35px;
+    background: #00ffcc;
+    color: #000;
+    text-decoration: none;
+    font-weight: bold;
+    border-radius: 5px;
+    transition: 0.3s;
+}
+
+.btn:hover {
+    background: #00ccaa;
+}
+
+
+.OYUN {
+    padding: 60px;
+}
+
+.OYUN h2 {
+    margin-bottom: 30px;
+    font-size: 28px;
+}
+
+.Oyun-list {
+    display: flex;
+    gap: 25px;
+    flex-wrap: wrap;
+}
+
+.OYun-card {
+    background: #111;
+    width: 260px;
+    padding: 15px;
+    border-radius: 10px;
+    transition: 0.3s;
+}
+
+.OYun-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 0 15px rgba(0,255,204,0.3);
+}
+
+.OYun-card .img {
+    height: 150px;
+    background: #222;
+    border-radius: 8px;
+    margin-bottom: 10px;
+}
+
+.OYun-card h3 {
+    font-size: 18px;
+    margin-bottom: 5px;
+}
+
+.OYun-card p {
+    font-size: 14px;
+    color: #aaa;
+}
+
+.OYun-card span {
+    display: block;
+    margin-top: 10px;
+    color: #00ffcc;
+    font-weight: bold;
+}
+
+.OYun-card img {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+    border-radius: 10px;
+    margin-bottom: 10px;
+}
+
+.footer {
+    text-align: center;
+    padding: 20px;
+    background: #000;
+    color: #777;
+    position: relative;
+    left: 50%;
+    right: 50%;
+    margin-left: -50vw;
+    margin-right: -50vw;
+    width: 100vw;
+}
+
+.footer-container {
+    max-width: 1100px;
+    margin: auto;
+    text-align: center;
+}
+
+.footer-about h3 {
+    margin-bottom: 10px;
+    font-size: 18px;
+    color: #f5b400;
+}
+
+.footer-about p {
+    font-size: 14px;
+    line-height: 1.6;
+    color: #ccc;
+    max-width: 600px;
+    margin: 0 auto 20px;
+}
+
+.footer-copy p {
+    font-size: 13px;
+    color: #888;
+}
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+
+html, body {
+    height: 100%;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    background-color: #121212;
+    color: #fff;
+}
+
+
+.header {
+    background-color: #000;
+    padding: 20px 0;
+}
+
+#üst {
+    max-width: 1200px;
+    margin: auto;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    background-color: #222;
+    padding: 15px 25px;
+    border-radius: 12px;
+}
+
+#logo img {
+    height: 40px;
+    width: 80px;
+    object-fit: cover;
+    border-radius: 50px;
+}
+
+#üst a {
+    color: white;
+    text-decoration: none;
+    padding: 10px;
+}
+
+#üst a:hover {
+    background-color: #444;
+    border-radius: 5px;
+}
+
+
+#oyun {
+    position: relative;
+}
+
+#oyunlar-baslik {
+    color: white;
+    padding: 10px;
+    cursor: pointer;
+}
+
+#oyun-alt {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background-color: #333;
+    width: 200px;
+    border-radius: 8px;
+    z-index: 10;
+}
+
+#oyun:hover #oyun-alt {
+    display: block;
+}
+
+.menu-item a {
+    display: block;
+    padding: 10px;
+    color: white;
+}
+
+.menu-item a:hover {
+    background-color: #555;
+}
+
+
+#sepet {
+    margin-left: auto;
+    background-color: #444;
+    border-radius: 6px;
+}
+
+#sepet:hover {
+    background-color: #666;
+}
+
+
+#orta {
+    flex: 1;
+    background-color: #1b1b1b;
+    padding: 40px;
+}
+
+.site-header {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.site-header h1 {
+    font-size: 36px;
+    margin-bottom: 10px;
+}
+
+.site-header p {
+    color: #aaa;
+}
+
+
+.onecikan-games {
+    display: flex;
+    justify-content: center;
+    gap: 25px;
+    flex-wrap: wrap;
+}
+
+.oyun-box {
+    width: 230px;
+    background: #1e1e1e;
+    padding: 15px;
+    border-radius: 12px;
+    text-align: center;
+    transition: 0.3s;
+}
+
+.oyun-box:hover {
+    transform: translateY(-5px);
+    background: #2a2a2a;
+}
+
+.oyun-box img {
+    width: 100%;
+    height: 130px;
+    object-fit: cover;
+    border-radius: 8px;
+    margin-bottom: 10px;
+}
+
+.oyun-box h3 {
+    margin-bottom: 8px;
+}
+
+.oyun-box p {
+    font-size: 14px;
+    color: #bbb;
+}
+
+.orta-alt {
+    margin-top: 50px;
+}
+
+.orta-alt table {
+    width: 100%;
+    border-spacing: 15px;
+}
+
+.orta-alt td {
+    background: #252525;
+    padding: 10px;
+    border-radius: 10px;
+    text-align: center;
+    color: white;
+    transition: 0.3s;
+}
+
+.orta-alt td:hover {
+    background: #333;
+    transform: scale(1.05);
+}
+
+.orta-alt img {
+    width: 100%;
+    height: 90px;
+    object-fit: cover;
+    border-radius: 8px;
+}
+
+.orta-alt p {
+    font-size: 13px;
+    margin: 6px 0;
+}
+
+.orta-alt span {
+    color: #00ff99;
+    font-weight: bold;
+    font-size: 13px;
+}
+
+
+.footer {
+    margin-top: auto;
+    background: #000;
+    padding: 30px 20px;
+    text-align: center;
+}
+
+.footer-container {
+    max-width: 1100px;
+    margin: auto;
+}
+
+.footer-about h3 {
+    color: #f5b400;
+    margin-bottom: 10px;
+}
+
+.footer-about p {
+    color: #ccc;
+    font-size: 14px;
+    max-width: 600px;
+    margin: 0 auto 20px;
+    line-height: 1.6;
+}
+
+.footer-copy p {
+    font-size: 13px;
+    color: #888;
+}
