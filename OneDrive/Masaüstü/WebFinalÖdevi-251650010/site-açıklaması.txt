@@ -1,0 +1,12 @@
+AD-SOYAD: Murat Kara 
+Ders Adı : Web Tabanlı Programlama
+Öğrenci Numarası: 251650010
+
+SİTE AMACI 
+site içerisinde oyun ve oyun içindeki oyun parası , oyundan itemleri satılabilir .
+
+SİTE İÇERİĞİ 
+sitenin içerisinde  oyun satın alabilceğiniz sayfalar herhangi sorun için destek hattımız vardır. toplamda 14 HTML sayfası ve hepsinin bağlı olduğu CSS sayfası vardır. sitemizin içinde demooyunlar vardır onlar için AI dan yardım aldım ve orda JAVASCRİPT , CSS , HTML kullanıldı çünkü HTML , CSS kullandırdığımda pek iyi oyunlar ortaya çıkmadı bunun için yapay zekaya JS kullanmasını istedim. ve satın alınan oyunlar için kütüphanede vardır herhangi bir veritabanı yazmadığım bütün fotoğrafları ben ekledim. Bu siteyi ilerletmeyi düşünüyorum siteyi geliştireceğim. 
+
+
+ 

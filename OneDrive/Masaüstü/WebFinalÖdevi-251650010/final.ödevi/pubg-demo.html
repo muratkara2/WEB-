@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<title> Refleks Oyunu</title>
+
+<style>
+body{
+    margin:0;
+    font-family:Arial;
+    background:#111;
+    color:white;
+    overflow:hidden;
+}
+
+
+#menu{
+    position:fixed;
+    inset:0;
+    background:#000d;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    z-index:10;
+}
+.menu-box{
+    background:#222;
+    padding:30px;
+    border-radius:10px;
+    text-align:center;
+    width:300px;
+}
+.menu-box input{
+    width:100%;
+    padding:10px;
+    margin:10px 0;
+}
+.menu-box button{
+    padding:12px;
+    width:100%;
+    font-size:16px;
+    cursor:pointer;
+}
+
+
+#hud{
+    position:fixed;
+    top:0;
+    width:100%;
+    background:#222;
+    padding:10px;
+    display:flex;
+    justify-content:space-between;
+}
+
+
+#game{
+    width:100vw;
+    height:100vh;
+    position:relative;
+}
+
+.box{
+    width:50px;
+    height:50px;
+    background:#00ff99;
+    position:absolute;
+    border-radius:6px;
+    cursor:pointer;
+}
+</style>
+</head>
+
+<body>
+
+
+<div id="menu">
+    <div class="menu-box">
+        <h2>🎯 Refleks Oyunu</h2>
+
+        <label>Kutucuk Sayısı</label>
+        <input type="number" id="boxCount" value="20">
+
+        <label>Kutucuk Süresi (ms)</label>
+        <input type="number" id="boxTime" value="800">
+
+        <button onclick="startGame()">Oyuna Başla</button>
+    </div>
+</div>
+
+
+<div id="hud">
+    <div>Skor: <span id="score">0</span></div>
+    <div>Kalan: <span id="left">0</span></div>
+</div>
+
+
+<div id="game"></div>
+
+<script>
+const game = document.getElementById("game");
+let score = 0;
+let totalBoxes = 0;
+let boxDuration = 800;
+let left = 0;
+
+function startGame(){
+    score = 0;
+    document.getElementById("score").innerText = score;
+
+    totalBoxes = Number(document.getElementById("boxCount").value);
+    boxDuration = Number(document.getElementById("boxTime").value);
+    left = totalBoxes;
+
+    document.getElementById("left").innerText = left;
+    document.getElementById("menu").style.display = "none";
+
+    spawnBoxes();
+}
+
+function spawnBoxes(){
+    if(left <= 0){
+        setTimeout(()=>{
+            alert("🎉 Oyun Bitti! Skor: " + score);
+            location.reload();
+        },500);
+        return;
+    }
+
+    const box = document.createElement("div");
+    box.className = "box";
+
+    box.style.left = Math.random() * (window.innerWidth - 60) + "px";
+    box.style.top  = Math.random() * (window.innerHeight - 60) + "px";
+
+    box.onclick = () => {
+        score++;
+        document.getElementById("score").innerText = score;
+        box.remove();
+    };
+
+    game.appendChild(box);
+
+    setTimeout(()=>{
+        if(box.parentNode){
+            box.remove();
+        }
+    }, boxDuration);
+
+    left--;
+    document.getElementById("left").innerText = left;
+
+    setTimeout(spawnBoxes, boxDuration / 1.2);
+}
+</script>
+
+</body>
+</html>
