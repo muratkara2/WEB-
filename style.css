@@ -1314,6 +1314,37 @@ main, #ana-alan, #orta {
     padding: 10px;
     margin: 5px auto;
 }
+/* ==========================================
+   3. OYUN KARTLARI VE İNDİRİMLER (EZİLMEYİ ÖNLER)
+   ========================================== */
+.container-flex, .indirimler, .Oyun-list, .destek-kartlari {
+    display: flex;
+    flex-wrap: wrap; /* Sığmayan kartları alt satıra atar */
+    justify-content: center;
+    gap: 15px;
+    padding: 20px 10px;
+}
+
+/* Her bir kartın boyutu */
+.oyun-kart, .hediye, .destek-kart, .game-box, .OYun-card {
+    background: #1e1e1e;
+    border-radius: 12px;
+    padding: 15px;
+    width: 250px; /* Masaüstü varsayılan genişlik */
+    text-align: center;
+    border: 1px solid #282828;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.oyun-kart img, .OYun-card img {
+    width: 100%;
+    height: 150px;
+    object-fit: cover;
+    border-radius: 8px;
+    margin-bottom: 10px;
+}
 
 /* Kart içindeki görseli küçültme */
 .hediye img {
@@ -1350,5 +1381,48 @@ main, #ana-alan, #orta {
     .footer-about p {
         font-size: 12px;
         padding: 0 10px;
+    }
+}
+@media (max-width: 768px) {
+    /* Menü karmaşasını çözer */
+    #üst {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .nav-links {
+        width: 100%;
+        justify-content: center;
+        flex-wrap: wrap; 
+        gap: 5px;
+    }
+
+    #üst a {
+        padding: 5px 8px;
+        font-size: 11px;
+    }
+
+    /* Oyun kartlarını mobilde 2'li yan yana dizer (ezilmeyi engeller) */
+    .oyun-kart, .hediye, .OYun-card {
+        width: calc(50% - 20px); 
+        min-width: 150px; /* Yazıların okunması için minimum genişlik */
+        padding: 10px;
+    }
+
+    .oyun-kart img {
+        height: 120px;
+    }
+
+    /* Gizemli oyun başlığının boyutu */
+    .hediye h2 {
+        font-size: 14px;
+    }
+}
+
+@media (max-width: 480px) {
+    /* Çok küçük ekranlarda kartlar tek tek alt alta gelsin */
+    .oyun-kart, .hediye {
+        width: 90%;
+        max-width: 300px;
     }
 }
