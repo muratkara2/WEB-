@@ -1295,20 +1295,30 @@ main, #ana-alan, #orta {
     padding: 20px 10px;
 }
 
-.hediye, .oyun-kart {
-    background: #1e1e1e;
-    border-radius: 12px;
-    padding: 15px;
-    width: calc(100% - 20px); /* Mobilde tam genişlik ama paddingli */
-    max-width: 320px; /* Devasa olmasını engeller */
-    text-align: center;
-    border: 1px solid #282828;
-    margin-bottom: 10px;
+/* İndirim kartlarının kapsayıcısı */
+.indirimler {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px; /* Boşluğu azalttık */
+    padding: 10px;
+    width: 100%;
 }
 
+/* İndirim/Hediye Kartı */
+.hediye, .oyun-kart {
+    flex: 0 1 calc(50% - 20px); /* Mobilde yan yana 2 tane sığdırmaya çalışır */
+    min-width: 160px; /* Çok küçülmesini önler */
+    max-width: 250px; /* Çok büyümesini önler */
+    height: auto;
+    padding: 10px;
+    margin: 5px auto;
+}
+
+/* Kart içindeki görseli küçültme */
 .hediye img {
-    width: 60px; /* Hediye ikonunu küçülttük */
-    margin-bottom: 10px;
+    width: 50px !important; /* Hediye paketi ikonunu makul seviyeye çeker */
+    height: auto;
 }
 
 /* ==========================================
