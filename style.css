@@ -1408,3 +1408,79 @@ main, #ana-alan, #orta, .OYUN, .sepet-container {
         height: 25px;
     }
 }
+
+/* ==========================================
+   6. INTERACTIVE IMAGE & LIGHTBOX STYLES
+   ========================================== */
+.interactive-image {
+    cursor: zoom-in;
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+    position: relative;
+    outline: none;
+}
+
+.interactive-image:hover,
+.interactive-image:focus-visible {
+    transform: translateY(-3px) scale(1.02);
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.35);
+}
+
+.image-lightbox {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.85);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 30px;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.25s ease;
+    z-index: 2000;
+}
+
+.image-lightbox.is-visible {
+    opacity: 1;
+    pointer-events: all;
+}
+
+.image-lightbox__content {
+    max-width: min(900px, 90vw);
+    width: 100%;
+    text-align: center;
+    position: relative;
+}
+
+.image-lightbox__img {
+    width: 100%;
+    max-height: 80vh;
+    object-fit: contain;
+    border-radius: 10px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    background: #000;
+}
+
+.image-lightbox__caption {
+    margin-top: 12px;
+    color: #f0f0f0;
+    font-size: 15px;
+}
+
+.image-lightbox__close {
+    position: absolute;
+    top: -15px;
+    right: -15px;
+    background: #ff5757;
+    color: #fff;
+    border: none;
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    font-size: 22px;
+    cursor: pointer;
+    transition: background 0.2s ease;
+}
+
+.image-lightbox__close:hover {
+    background: #ff3232;
+}
