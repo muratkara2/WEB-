@@ -55,20 +55,20 @@ body{
     top:0;
     left:0;
     width:100%;
-    height:60px;                 /* ğŸ”¥ YÃœKSEKLÄ°K ZORUNLU */
+    height:60px;                 /* YÜKSEKLİK ZORUNLU */
     background:#222;
     padding:0 20px;
     display:flex;
     justify-content:space-between;
-    align-items:center;          /* ğŸ”¥ DÄ°KEY ORTALA */
-    font-size:18px;              /* ğŸ”¥ OKUNUR HALE GETÄ°R */
+    align-items:center;          /* DİKEY ORTALA */
+    font-size:18px;              /* OKUNUR HALE GETİR */
     z-index:1000;
 }
 
 
 #game{
     position:absolute;
-    top:60px;                    /* HUD kadar aÅŸaÄŸÄ± */
+    top:60px;                    /* HUD kadar aşağı */
     left:0;
     width:100%;
     height:calc(100vh - 60px);
@@ -90,15 +90,15 @@ body{
 
 <div id="menu">
     <div class="menu-box">
-        <h2>ğŸ¯ Refleks Oyunu</h2>
+        <h2>🎯 Refleks Oyunu</h2>
 
-        <label>Kutucuk SayÄ±sÄ±</label>
+        <label>Kutucuk Sayısı</label>
         <input type="number" id="boxCount" value="20">
 
-        <label>Kutucuk SÃ¼resi (ms)</label>
+        <label>Kutucuk Süresi (ms)</label>
         <input type="number" id="boxTime" value="800">
 
-        <button onclick="startGame()">Oyuna BaÅŸla</button>
+        <button onclick="startGame()">Oyuna Başla</button>
     </div>
 </div>
 
@@ -135,7 +135,7 @@ function startGame(){
 function spawnBox(){
     if(left <= 0){
         setTimeout(()=>{
-            alert("ğŸ‰ Oyun Bitti! Skor: " + score);
+            alert("🎉 Oyun Bitti! Skor: " + score);
             location.reload();
         },300);
         return;
@@ -180,4 +180,5 @@ function spawnBox(){
     <script src='script.js' defer></script>
 </body>
 </html>
+
 

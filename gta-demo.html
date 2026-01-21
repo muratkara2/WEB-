@@ -2,7 +2,7 @@
 <html lang="tr">
 <head>
 <meta charset="UTF-8">
-<title>polisten kaÃ§Ä±ÅŸ</title>
+<title>polisten kaçış</title>
 <link rel="stylesheet" href="style.css">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
@@ -14,12 +14,12 @@
 <body>
 
 <div id="menu">
-    <button onclick="start()">Oyuna BaÅŸla</button>
+    <button onclick="start()">Oyuna Başla</button>
 </div>
 
 <div id="hud">
     <div>Risk: <span id="risk">0</span></div>
-    <div>ğŸš“ Polis 3 sn sonra baÅŸlar</div>
+    <div>🚓 Polis 3 sn sonra başlar</div>
 </div>
 
 <div id="OYUn">
@@ -30,9 +30,9 @@
 
 <div id="oyunbitti">
     <div class="box">
-        <h2>ğŸš“ YakalandÄ±n!</h2>
-        <button onclick="restart()">ğŸ” Yeniden Oyna</button>
-        <button onclick="exitGame()">ğŸšª Ã‡Ä±k</button>
+        <h2>🚓 Yakalandın!</h2>
+        <button onclick="restart()">🔁 Yeniden Oyna</button>
+        <button onclick="exitGame()">🚪 Çık</button>
     </div>
 </div>
 
@@ -89,7 +89,7 @@ function loop(){
 
     if(Math.abs(px-600)<50 && Math.abs(py-300)<50){
         playing=false;
-        alert("ğŸ  Garaja girdin, kurtuldun!");
+        alert("🏠 Garaja girdin, kurtuldun!");
         location.reload();
     }
 
@@ -112,4 +112,5 @@ function exitGame(){
     <script src='script.js' defer></script>
 </body>
 </html>
+
 

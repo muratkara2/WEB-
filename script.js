@@ -1,15 +1,26 @@
 document.addEventListener('DOMContentLoaded', () => {
   const lightbox = setupLightbox();
-  const allImages = Array.from(document.querySelectorAll('img'));
-  const interactiveImages = allImages.filter((img) => {
-    if (img.closest('#logo')) {
-      return false;
-    }
-    if (img.dataset.noLightbox === 'true' || img.classList.contains('no-lightbox')) {
-      return false;
-    }
-    return true;
-  });
+  const gallerySelectors = [
+    '.OYun-card img',
+    '.oyun-box img',
+    '.oyun-kart img',
+    '.game-box img',
+    '.hediye img',
+    '.Oyun-list img',
+    '.onecikan-games img',
+    '#orta-alt img',
+    '.orta-alt img',
+    '.sepet-item img',
+    'table img'
+  ];
+
+  const interactiveImages = Array.from(
+    new Set(
+      gallerySelectors
+        .map((selector) => Array.from(document.querySelectorAll(selector)))
+        .flat()
+    )
+  ).filter((img) => shouldEnhance(img));
 
   interactiveImages.forEach((img) => {
     img.classList.add('interactive-image');
@@ -26,6 +37,23 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 });
+
+function shouldEnhance(img) {
+  if (!img) {
+    return false;
+  }
+  if (img.closest('#logo')) {
+    return false;
+  }
+  const src = (img.getAttribute('src') || '').toLowerCase();
+  if (src.includes('logo') || src.includes('icon')) {
+    return false;
+  }
+  if (img.dataset.noLightbox === 'true' || img.classList.contains('no-lightbox')) {
+    return false;
+  }
+  return true;
+}
 
 function setupLightbox() {
   const overlay = document.createElement('div');
